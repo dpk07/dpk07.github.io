@@ -3,135 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepak Pai - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Deepak Pai - Senior Backend Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
         }
         header {
-            background: #333;
-            color: #fff;
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 0.5rem;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .skill-item {
+            background: #e9ecef;
+            padding: 0.75rem;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer {
+            background: #212529;
+            color: white;
             padding: 2rem 0;
             text-align: center;
         }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+        .contact-link {
+            color: #0d6efd;
+            text-decoration: none;
         }
-        .section-title {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #333;
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #0d6efd;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.25rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0d6efd;
+            border: 2px solid white;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Deepak Pai</h1>
-        <p>Software Developer | Problem Solver | Quick Learner</p>
+        <div class="container">
+            <h1>Deepak Pai</h1>
+            <p>Senior Backend Engineer | Scalable Systems | Infra Specialist</p>
+            <p>7+ years building fault-tolerant systems for fintech and SaaS</p>
+        </div>
     </header>
-    <div class="container">
-        <section class="contact-info">
+
+    <div class="container py-5">
+        <section class="contact-info mb-5">
             <h2 class="section-title">Contact</h2>
-            <ul class="list-unstyled">
-                <li>Email: <a href="mailto:paideepak0796@gmail.com">paideepak0796@gmail.com</a></li>
-                <li>Phone: <a href="tel:+917208834876">+91 72088 34876</a></li>
-                <li>LinkedIn: <a href="https://linkedin.com/in/deepakpai07" target="_blank">linkedin.com/in/deepakpai07</a></li>
-                <li>GitHub: <a href="https://github.com/dpk07" target="_blank">github.com/dpk07</a></li>
-            </ul>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <i class="fas fa-envelope me-2"></i>
+                    <a href="mailto:paideepak0796@gmail.com" class="contact-link">paideepak0796@gmail.com</a>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <i class="fas fa-phone me-2"></i>
+                    <a href="tel:+917208834876" class="contact-link">+91 72088 34876</a>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <i class="fab fa-linkedin me-2"></i>
+                    <a href="https://linkedin.com/in/deepakpai07" target="_blank" class="contact-link">linkedin.com/in/deepakpai07</a>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <i class="fab fa-github me-2"></i>
+                    <a href="https://github.com/dpk07" target="_blank" class="contact-link">github.com/dpk07</a>
+                </div>
+            </div>
         </section>
-        <section class="experience">
+
+        <section class="experience mb-5">
             <h2 class="section-title">Experience</h2>
-            <div class="mb-3">
-                <h3>Browserstack, Mumbai — Senior Software Engineer</h3>
-                <p><strong>Aug 2022 - Present</strong></p>
-                <ul>
-                    <li>Transformed a monolithic application into a microservices architecture, establishing a core repository microservice.</li>
-                    <li>Reduced revert time from 22 minutes to under 1 minute with an efficient quick-revert setup.</li>
-                    <li>Established Kubernetes environments (staging, preprod, production) and CI jobs.</li>
-                    <li>Drove engineering initiatives like enabling multi-az and upgrading RDS instance type.</li>
-                    <li>Created Open API Spec and user-friendly SDKs for cross-team utilization.</li>
-                    <li>Optimized Sequelize queries and enhanced database efficiency.</li>
-                </ul>
-            </div>
-            <div class="mb-3">
-                <h3>Punch, Mumbai — Backend Developer</h3>
-                <p><strong>Jan 2021 - Aug 2022</strong></p>
-                <ul>
-                    <li>Developed core microservices for a stock broking application.</li>
-                    <li>Optimized uptime and performance for high-availability microservices.</li>
-                    <li>Led end-to-end development of onboarding, communication, and trade-placement microservices.</li>
-                    <li>Managed infrastructure with Terraform and Ansible, coding in Elixir, Golang, and Ruby on Rails using TDD.</li>
-                </ul>
-            </div>
-            <div class="mb-3">
-                <h3>Adrosonic, Mumbai — Software Analyst</h3>
-                <p><strong>July 2018 - Dec 2020</strong></p>
-                <ul>
-                    <li>Implemented parallel processing and caching techniques, improving system load times by 90%.</li>
-                    <li>Developed a responsive web version of the Outlook desktop plugin.</li>
-                    <li>Created the Outlook 360 plugin compatible with both web and desktop platforms.</li>
-                </ul>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Senior Software Engineer</h3>
+                            <h4 class="card-subtitle mb-2 text-muted">Browserstack, Mumbai | Aug 2022 - Present</h4>
+                            <ul>
+                                <li>Transformed monolithic app to microservices, centralizing data access</li>
+                                <li>Reduced revert time from 22 min to <1 min with quick-revert setup</li>
+                                <li>Slashed P99 dashboard load times from 2 min to <2 sec via Kafka optimization</li>
+                                <li>Built health monitoring with Prometheus, Grafana, Opsgenie, catching 90% of issues</li>
+                                <li>Setup isolated Kubernetes environments with CI/CD pipelines</li>
+                                <li>Introduced Clickhouse and Debezium CDC for real-time analytics (500ms to <50ms)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Backend Developer</h3>
+                            <h4 class="card-subtitle mb-2 text-muted">Punch, Mumbai | Jan 2021 - Aug 2022</h4>
+                            <ul>
+                                <li>Developed core microservices for stock broking application</li>
+                                <li>Ensured high availability and optimized performance</li>
+                                <li>Led end-to-end development of onboarding and trade-placement services</li>
+                                <li>Managed infrastructure with Terraform and Ansible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Software Analyst</h3>
+                            <h4 class="card-subtitle mb-2 text-muted">Adrosonic, Mumbai | Jul 2018 - Dec 2020</h4>
+                            <ul>
+                                <li>Improved system load times by 90% with parallel processing and caching</li>
+                                <li>Developed responsive web version of Outlook desktop plugin</li>
+                                <li>Created Outlook 360 plugin for web and desktop compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="education">
-            <h2 class="section-title">Education</h2>
-            <ul class="list-unstyled">
-                <li><strong>Datta Meghe College of Engineering</strong> — B.E (2014 - 2018), Computer Engineering, 8.2 CGPA</li>
-                <li><strong>K.J Somaiya</strong> — HSC (2014), Science, 73.38%</li>
-                <li><strong>Maharashtra State Board</strong> — SSC (2012), 89.45%</li>
-            </ul>
-        </section>
-        <section class="skills">
+
+        <section class="skills mb-5">
             <h2 class="section-title">Skills</h2>
-            <ul class="list-inline">
-                <li class="list-inline-item">Node.js</li>
-                <li class="list-inline-item">Ruby on Rails</li>
-                <li class="list-inline-item">Golang</li>
-                <li class="list-inline-item">Elixir</li>
-                <li class="list-inline-item">Java + Spring</li>
-                <li class="list-inline-item">Terraform</li>
-                <li class="list-inline-item">Ansible</li>
-                <li class="list-inline-item">Jenkins</li>
-                <li class="list-inline-item">Vault</li>
-                <li class="list-inline-item">Helm</li>
-                <li class="list-inline-item">Kubernetes</li>
-                <li class="list-inline-item">Docker</li>
-                <li class="list-inline-item">SQL</li>
-                <li class="list-inline-item">NoSQL</li>
-                <li class="list-inline-item">Redis</li>
-                <li class="list-inline-item">Messaging queues</li>
-                <li class="list-inline-item">React</li>
-                <li class="list-inline-item">HTML + CSS</li>
-                <li class="list-inline-item">Unit Testing</li>
-                <li class="list-inline-item">TDD</li>
-                <li class="list-inline-item">AWS</li>
-                <li class="list-inline-item">Firebase</li>
-            </ul>
+            <div class="skills-grid">
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">Go</div>
+                <div class="skill-item">Ruby on Rails</div>
+                <div class="skill-item">Elixir</div>
+                <div class="skill-item">Java (Spring Boot)</div>
+                <div class="skill-item">Kubernetes</div>
+                <div class="skill-item">Docker</div>
+                <div class="skill-item">Terraform</div>
+                <div class="skill-item">Helm</div>
+                <div class="skill-item">Jenkins</div>
+                <div class="skill-item">Vault</div>
+                <div class="skill-item">MySQL</div>
+                <div class="skill-item">Clickhouse</div>
+                <div class="skill-item">Redis</div>
+                <div class="skill-item">Firebase</div>
+                <div class="skill-item">AWS (MSK, SNS)</div>
+                <div class="skill-item">Prometheus</div>
+                <div class="skill-item">Grafana</div>
+                <div class="skill-item">Opsgenie</div>
+                <div class="skill-item">Kafka</div>
+                <div class="skill-item">React.js</div>
+                <div class="skill-item">Unit Testing</div>
+                <div class="skill-item">TDD</div>
+            </div>
         </section>
-        <section class="certificates">
+
+        <section class="education mb-5">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">B.E, Computer Engineering</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Datta Meghe College of Engineering | 2014 - 2018</h4>
+                    <p>CGPA: 8.2</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">HSC, Science</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">K.J Somaiya | 2014</h4>
+                    <p>73.38%</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">SSC</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Maharashtra State Board | 2012</h4>
+                    <p>89.45%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="certificates mb-5">
             <h2 class="section-title">Certificates</h2>
-            <ul class="list-unstyled">
-                <li>Data Structures and Algorithms — GeeksForGeeks</li>
-                <li>Spring Framework with Spring Boot — Udemy</li>
-            </ul>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="mb-0">
+                        <li>Data Structures and Algorithms — GeeksForGeeks</li>
+                        <li>Spring Framework with Spring Boot — Udemy</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        <section class="awards">
+
+        <section class="awards mb-5">
             <h2 class="section-title">Awards</h2>
-            <ul class="list-unstyled">
-                <li>Debutant of the Year 2018 — CEO & MD, Adrosonic</li>
-            </ul>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="mb-0">
+                        <li>Blackbelt Award 2024 — CEO, Browserstack</li>
+                        <li>Debutant of the Year 2018 — CEO & MD, Adrosonic</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </div>
+
     <footer>
-        <p>&copy; 2024 Deepak Pai</p>
+        <p>&copy; 2025 Deepak Pai. All rights reserved.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
