@@ -6,194 +6,343 @@
     <title>Deepak Pai - Senior Backend Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #1a2b49;
+            scroll-behavior: smooth;
         }
-        header {
-            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
+
+        /* Navigation */
+        .navbar {
+            background: #1a2b49;
+            padding: 1rem 0;
+            transition: background 0.3s ease;
         }
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        .section-title {
-            font-size: 1.8rem;
+
+        .navbar-brand {
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #0d6efd;
-            border-bottom: 2px solid #0d6efd;
-            padding-bottom: 0.5rem;
+            color: #ffffff !important;
         }
-        .card {
+
+        .nav-link {
+            color: #d1d9e6 !important;
+            font-weight: 400;
+            margin-left: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #00c4b4 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2b49 0%, #3b5998 100%);
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero .btn {
+            background: #00c4b4;
             border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeInUp 1.4s ease-out;
         }
+
+        .hero .btn:hover {
+            background: #00a69a;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a2b49;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: #00c4b4;
+        }
+
+        /* Card Component */
+        .card {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
-        .card-body {
-            padding: 1.5rem;
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a2b49;
         }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+
+        .card-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
         }
-        .skill-item {
-            background: #e9ecef;
-            padding: 0.75rem;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        footer {
-            background: #212529;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .contact-link {
-            color: #0d6efd;
-            text-decoration: none;
-        }
-        .contact-link:hover {
-            text-decoration: underline;
-        }
+
+        /* Timeline Component */
         .timeline {
             position: relative;
-            padding-left: 2rem;
+            padding-left: 2.5rem;
         }
+
         .timeline::before {
             content: '';
             position: absolute;
-            left: 0.5rem;
+            left: 0.75rem;
             top: 0;
             bottom: 0;
             width: 4px;
-            background: #0d6efd;
+            background: #00c4b4;
         }
+
         .timeline-item {
             position: relative;
             margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease forwards;
+            animation-delay: calc(0.2s * var(--index));
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -2.25rem;
+            left: -2rem;
             top: 0.5rem;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: #0d6efd;
-            border: 2px solid white;
+            background: #00c4b4;
+            border: 3px solid white;
         }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: #e5e7eb;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: #00c4b4;
+            color: white;
+        }
+
+        /* Contact Links */
+        .contact-link {
+            color: #1a2b49;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #00c4b4;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a2b49;
+            color: #d1d9e6;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
-            header p {
+
+            .hero p {
                 font-size: 1rem;
             }
+
             .section-title {
                 font-size: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .nav-link {
+                margin-left: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Deepak Pai</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero">
         <div class="container">
             <h1>Deepak Pai</h1>
-            <p>Senior Backend Engineer | Scalable Systems | Infra Specialist</p>
-            <p>7+ years building fault-tolerant systems for fintech and SaaS</p>
+            <p>Senior Backend Engineer specializing in scalable systems and infrastructure. Over 7 years of experience building fault-tolerant solutions for fintech and SaaS.</p>
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
         </div>
-    </header>
+    </section>
 
-    <div class="container py-5">
-        <section class="contact-info mb-5">
-            <h2 class="section-title">Contact</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <i class="fas fa-envelope me-2"></i>
-                    <a href="mailto:paideepak0796@gmail.com" class="contact-link">paideepak0796@gmail.com</a>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <i class="fas fa-phone me-2"></i>
-                    <a href="tel:+917208834876" class="contact-link">+91 72088 34876</a>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <i class="fab fa-linkedin me-2"></i>
-                    <a href="https://linkedin.com/in/deepakpai07" target="_blank" class="contact-link">linkedin.com/in/deepakpai07</a>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <i class="fab fa-github me-2"></i>
-                    <a href="https://github.com/dpk07" target="_blank" class="contact-link">github.com/dpk07</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="experience mb-5">
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" style="--index: 1">
                     <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Senior Software Engineer</h3>
-                            <h4 class="card-subtitle mb-2 text-muted">Browserstack, Mumbai | Aug 2022 - Present</h4>
-                            <ul>
-                                <li>Transformed monolithic app to microservices, centralizing data access</li>
-                                <li>Contributed to slashing P99 dashboard load times from 2 min to <2 sec via Kafka optimization</li>
-                                <li>Built health monitoring with Prometheus, Grafana, Opsgenie, catching 90% of issues</li>
-                                <li>Setup isolated Kubernetes environments with CI/CD pipelines</li>
-                                <li>Introduced Clickhouse and Debezium CDC for real-time analytics (500ms to <50ms)</li>
-                            </ul>
-                        </div>
+                        <h3 class="card-title">Senior Software Engineer</h3>
+                        <h4 class="card-subtitle">Browserstack, Mumbai | Aug 2022 - Present</h4>
+                        <ul>
+                            <li>Transformed monolithic app to microservices, centralizing data access.</li>
+                            <li>Contributed to slashing of P99 dashboard load times from 2 min to <2 sec using Kafka optimization.</li>
+                            <li>Built monitoring with Prometheus, Grafana, Opsgenie, catching 90% of issues.</li>
+                            <li>Setup isolated Kubernetes environments with CI/CD pipelines.</li>
+                            <li>Introduced Clickhouse and Debezium CDC for real-time analytics (500ms to <50ms).</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" style="--index: 2">
                     <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Backend Developer</h3>
-                            <h4 class="card-subtitle mb-2 text-muted">Punch, Mumbai | Jan 2021 - Aug 2022</h4>
-                            <ul>
-                                <li>Developed core microservices for stock broking application</li>
-                                <li>Ensured high availability and optimized performance</li>
-                                <li>Contributed to development of onboarding and trade-placement services</li>
-                                <li>Managed infrastructure with Terraform and Ansible</li>
-                            </ul>
-                        </div>
+                        <h3 class="card-title">Backend Developer</h3>
+                        <h4 class="card-subtitle">Punch, Mumbai | Jan 2021 - Aug 2022</h4>
+                        <ul>
+                            <li>Developed core microservices for stock broking application.</li>
+                            <li>Ensured high availability and optimized performance.</li>
+                            <li>Contributed to end-to-end development of onboarding and trade-placement services.</li>
+                            <li>Managed infrastructure with Terraform and Ansible.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" style="--index: 3">
                     <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Software Analyst</h3>
-                            <h4 class="card-subtitle mb-2 text-muted">Adrosonic, Mumbai | Jul 2018 - Dec 2020</h4>
-                            <ul>
-                                <li>Improved system load times by 90% with parallel processing and caching</li>
-                                <li>Developed responsive web version of Outlook desktop plugin</li>
-                                <li>Created Outlook 360 plugin for web and desktop compatibility</li>
-                            </ul>
-                        </div>
+                        <h3 class="card-title">Software Analyst</h3>
+                        <h4 class="card-subtitle">Adrosonic, Mumbai | Jul 2018 - Dec 2020</h4>
+                        <ul>
+                            <li>Improved system load times by 90% with parallel processing and caching.</li>
+                            <li>Developed responsive web version of Outlook desktop plugin.</li>
+                            <li>Created Outlook 360 plugin for web and desktop compatibility.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="skills mb-5">
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">Node.js</div>
@@ -220,62 +369,115 @@
                 <div class="skill-item">Unit Testing</div>
                 <div class="skill-item">TDD</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="education mb-5">
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">B.E, Computer Engineering</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Datta Meghe College of Engineering | 2014 - 2018</h4>
-                    <p>CGPA: 8.2</p>
-                </div>
+                <h3 class="card-title">B.E, Computer Engineering</h3>
+                <h4 class="card-subtitle">Datta Meghe College of Engineering | 2014 - 2018</h4>
+                <p>CGPA: 8.2</p>
             </div>
             <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">HSC, Science</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">K.J Somaiya | 2014</h4>
-                    <p>73.38%</p>
-                </div>
+                <h3 class="card-title">HSC, Science</h3>
+                <h4 class="card-subtitle">K.J Somaiya | 2014</h4>
+                <p>73.38%</p>
             </div>
             <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">SSC</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Maharashtra State Board | 2012</h4>
-                    <p>89.45%</p>
-                </div>
+                <h3 class="card-title">SSC</h3>
+                <h4 class="card-subtitle">Maharashtra State Board | 2012</h4>
+                <p>89.45%</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="certificates mb-5">
-            <h2 class="section-title">Certificates</h2>
-            <div class="card">
-                <div class="card-body">
-                    <ul class="mb-0">
-                        <li>Data Structures and Algorithms — GeeksForGeeks</li>
-                        <li>Spring Framework with Spring Boot — Udemy</li>
-                    </ul>
+    <!-- Certificates & Awards Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="section-title">Certificates</h2>
+                    <div class="card">
+                        <ul>
+                            <li>Data Structures and Algorithms — GeeksForGeeks</li>
+                            <li>Spring Framework with Spring Boot — Udemy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="section-title">Awards</h2>
+                    <div class="card">
+                        <ul>
+                            <li>Blackbelt Award 2024 — CEO, Browserstack</li>
+                            <li>Debutant of the Year 2018 — CEO & MD, Adrosonic</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="awards mb-5">
-            <h2 class="section-title">Awards</h2>
-            <div class="card">
-                <div class="card-body">
-                    <ul class="mb-0">
-                        <li>Blackbelt Award 2024 — CEO, Browserstack</li>
-                        <li>Debutant of the Year 2018 — CEO & MD, Adrosonic</li>
-                    </ul>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <i class="fas fa-envelope me-2"></i>
+                    <a href="mailto:paideepak0796@gmail.com" class="contact-link">paideepak0796@gmail.com</a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <i class="fas fa-phone me-2"></i>
+                    <a href="tel:+917208834876" class="contact-link">+91 72088 34876</a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <i class="fab fa-linkedin me-2"></i>
+                    <a href="https://linkedin.com/in/deepakpai07" target="_blank" class="contact-link">linkedin.com/in/deepakpai07</a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <i class="fab fa-github me-2"></i>
+                    <a href="https://github.com/dpk07" target="_blank" class="contact-link">github.com/dpk07</a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Deepak Pai. All rights reserved.</p>
+        <p>© 2025 Deepak Pai. All rights reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for nav links
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Active nav link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
